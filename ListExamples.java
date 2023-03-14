@@ -23,24 +23,24 @@ class ListExamples {
   // and return a new list that has all the strings in both list in sorted order.
   static List<String> merge(List<String> list1, List<String> list2) {
     List<String> result = new ArrayList<>();
-    int index1 = 0, index2 = 0;
-    while(index1 < list1.size() && index2 < list2.size()) {
-      if(list1.get(index1).compareTo(list2.get(index2)) < 0) {
-        result.add(list1.get(index1));
-        index1 += 1;
+    int i = 0, j = 0;
+    for(; i < list1.size() && j < list2.size();) {
+      if(list1.get(i).compareTo(list2.get(j)) < 0) {
+        result.add(list1.get(i));
+        i++;
       }
       else {
-        result.add(list2.get(index2));
-        index2 += 1;
+        result.add(list2.get(j));
+        j++;
       }
     }
-    while(index1 < list1.size()) {
-      result.add(list1.get(index1));
-      index1 += 1;
+    while(i < list1.size()) {
+      result.add(list1.get(i));
+      i++;
     }
-    while(index2 < list2.size()) {
-      result.add(list2.get(index2));
-      index1 += 1;
+    while(j < list2.size()) {
+      result.add(list2.get(j));
+      j++;
     }
     return result;
   }
